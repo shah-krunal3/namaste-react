@@ -1,4 +1,14 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const heading = React.createElement("h1",{ id: "heading"}, "Hello World from React!");
+
+const parent = React.createElement("div", { id: "parent" }, 
+        React.createElement("div", { id: "child1" },
+            React.createElement("h1", {}, "Child 1 Text")
+        )
+);
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -16,17 +26,5 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
  * 
  */
 
- const parent = React.createElement("div", { id : "parent" }, 
-    [
-        React.createElement("div", { id: "child1"},
-            React.createElement("h1", {}, "Child 1 Text")
-        ),
-        React.createElement("div", { id: "child2"},
-            React.createElement("h1", {}, "Child 2 Text")
-        )
-    ]
-);
-
-setTimeout(() => {
-    root.render(parent);
-}, 2000);
+ 
+root.render(parent);
